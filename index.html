@@ -54,15 +54,27 @@
         }
 
         #light-03 {
-            background-color: #ff9933;
-
+            background-color: #fc7a24;
         }
 
         #light-04 {
-            background-color: #ff6600;
+            background-color: #ff9933;
         }
 
         #light-05 {
+            background-color: #ff9933;
+        }
+
+        #light-06 {
+            background-color: #fc7a24;
+        }
+
+
+        #light-07 {
+            background-color: #ff6600;
+        }
+
+        #light-08 {
             background-color: #fb1d1d;
         }
 
@@ -78,8 +90,11 @@
         <div class="light" id="light-01"></div>
         <div class="light" id="light-02"></div>
         <div class="light" id="light-03"></div>
-        <div class="light" id="light-04"></div>
+<!--        <div class="light" id="light-04"></div>-->
         <div class="light" id="light-05"></div>
+        <div class="light" id="light-06"></div>
+        <div class="light" id="light-07"></div>
+        <div class="light" id="light-08"></div>
     </div>
 
     <button id="start"> Start </button>
@@ -100,7 +115,7 @@
         $(".light").css("opacity", "0.3");
         $("#light-0" + (currentLight + 1)).css("opacity", "1");
 
-        if (currentLight === 4) direction = "LEFT";
+        if (currentLight === 7) direction = "LEFT";
         else if (currentLight === 0) direction = "RIGHT";
 
         //(if we use 1 -1 instead left and right...
