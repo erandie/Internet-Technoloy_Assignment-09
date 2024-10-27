@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body{
+            background-color: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            text-align: center;
+        }
+
+        h1{
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .lights{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .light{
+            width: 100px;
+            height: 50px;
+            border-radius: 5px;
+            transition: opacity 0.1s ease;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #light-01 {
+            background-color: #fb1d1d;
+        }
+
+        #light-02 {
+            background-color: #ff6600;
+        }
+
+        #light-03 {
+            background-color: #ff9933;
+
+        }
+
+        #light-04 {
+            background-color: #ff6600;
+        }
+
+        #light-05 {
+            background-color: #fb1d1d;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1> Knight Rider Lights</h1>
+    <div class="lights">
+        <div class="light" id="light-01"></div>
+        <div class="light" id="light-02"></div>
+        <div class="light" id="light-03"></div>
+        <div class="light" id="light-04"></div>
+        <div class="light" id="light-05"></div>
+    </div>
+
+    <button id="start"> Start </button>
+    <button id="stop"> Stop </button>
+    <audio id="audio" src="knight-rider-theme.mp3" loop></audio>
+
+</div>
+
+<script src="lib/jquery-3.7.1.min.js"></script>
+<script>
+
+    let interval;
+    let direction = 1;
+    let currentLight = 0;
+    const audio = document.getElementById("audio");
+
+    function animateLights() {
+        $(".light").css("opacity", "0.3");
+        $("#light-0" + (currentLight + 1)).css("opacity", "1");
+
+        if (currentLight === 4) direction = -1;
+        else if (currentLight === 0) direction = 1;
+
+        currentLight += direction;
+    }
+
+    $("#start").on("click", function () {
+        if (!interval) {
+            interval = setInterval(animateLights, 100);
+            audio.play();
+        }
+    });
+
+    $("#stop").on("click", function () {
+        clearInterval(interval);
+        interval = null;
+        $(".light").css("opacity", "0.3");
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
